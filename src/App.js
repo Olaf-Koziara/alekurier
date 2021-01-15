@@ -13,9 +13,8 @@ function App() {
     fetch(`https://jsonplaceholder.typicode.com/posts/${editedPost.id}`, {
       method: "PUT",
       body: JSON.stringify({ ...editedPost }),
-    })
-      .then((response) => response.json())
-      .then((data) => console.log(data));
+    });
+
     setPosts(
       posts.map((post) => (post.id === editedPost.id ? editedPost : post)),
     );
