@@ -11,19 +11,29 @@
   margin: auto;
   text-align: end;
 }
+.form__field > label {
+  font-size: 20px;
+
+  padding: 10px;
+}
 .form__field > input {
   width: 100%;
   height: 100%;
   border: 0;
-  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.05);
-  font-size: 20px;
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  padding: 10px;
+  margin: auto;
 }
 .form__field > textarea {
   resize: none;
   border: 0;
   height: 150px;
   width: 100%;
-  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.1);
+  color: rgb(73, 73, 73);
+  padding: 10px;
+  margin: auto;
 }
 .form__field {
   margin: 20px;
@@ -51,8 +61,36 @@
 .pagination {
   font-size: 25px;
   padding: 40px;
+  list-style: none;
+  display: flex;
+  width: 100px;
+  margin: auto;
+  gap: 10px;
+  justify-content: center;
+}
+.pagination__item {
+  border-radius: 5px;
+  background-color: #7f8ff4;
+  color: white;
+  font-size: 20px;
+  user-select: none;
+  padding: 7px;
+  cursor: pointer;
+}
+.pagination__item--active {
+  background-color: #c3cbff;
 }
 
+.pagination-previous,
+.pagination-next {
+  background-color: #5165eb;
+  color: white;
+  font-size: 20px;
+  border-radius: 10px;
+  padding: 7px;
+  cursor: pointer;
+  user-select: none;
+}
 .pagination > button {
   border: 0;
   background-color: transparent;

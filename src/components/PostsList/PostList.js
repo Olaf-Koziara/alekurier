@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import PostListItem from "../PostsListItem/PostListItem";
 import "./PostList.css";
 import Modal from "react-modal";
+import ReactPaginate from "react-paginate";
 const PostList = ({ posts, editPost }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editedPost, setEditedPost] = useState({ title: "", body: "" });
@@ -29,7 +30,7 @@ const PostList = ({ posts, editPost }) => {
       right: "auto",
       bottom: "auto",
       marginRight: "-50%",
-      width: "400px",
+      width: "550px",
       height: "350px",
       transform: "translate(-50%, -50%)",
     },
@@ -84,15 +85,17 @@ const PostList = ({ posts, editPost }) => {
           ) : null,
         )}
       </ul>
-      <div className="pagination">
-        <button
-          onClick={pageNumber > 1 ? () => setPageNumber(pageNumber - 1) : null}
-        >
-          ᐊ
-        </button>
-        {pageNumber}
-        <button onClick={() => setPageNumber(pageNumber + 1)}>ᐅ</button>
-      </div>
+      <ReactPaginate
+        containerClassName="pagination"
+        pageClassName="pagination__item"
+        activeClassName="pagination__item--active"
+        previousClassName="pagination-previous"
+        nextClassName="pagination-next"
+        pageCount={posts.length / postsPerPage + 1}
+        pageRangeDisplayed={5}
+        marginPagesDisplayed={3}
+        onPageChange={(e) => setPageNumber(e.selected + 1)}
+      />
     </>
   );
 };
