@@ -75,8 +75,8 @@ const PostList = ({ posts, editPost }) => {
       </Modal>
       <ul className="post-list">
         {posts.map((post, index) =>
-          index < pageNumber * postsPerPage &&
-          index >= postsPerPage * (pageNumber - 1) ? (
+          index >= postsPerPage * pageNumber &&
+          index < postsPerPage * pageNumber + postsPerPage ? (
             <PostListItem
               onClick={() => handlePostEdit({ ...post })}
               key={post.id}
@@ -91,9 +91,10 @@ const PostList = ({ posts, editPost }) => {
         activeClassName="pagination__item--active"
         previousClassName="pagination-previous"
         nextClassName="pagination-next"
-        pageCount={posts.length / postsPerPage + 1}
+        pageCount={posts.length / postsPerPage}
         pageRangeDisplayed={5}
         marginPagesDisplayed={3}
+        initialPage={1}
         onPageChange={(e) => setPageNumber(e.selected)}
       />
     </>
