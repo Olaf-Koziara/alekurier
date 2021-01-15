@@ -94,7 +94,7 @@ const PostList = ({ posts, editPost }) => {
         pageCount={posts.length / postsPerPage + 1}
         pageRangeDisplayed={5}
         marginPagesDisplayed={3}
-        onPageChange={(e) => setPageNumber(e.selected + 1)}
+        onPageChange={(e) => setPageNumber(e.selected)}
       />
     </>
   );
